@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Birthday Surprise 💌</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@600&family=Lato:wght@400;300&family=Fredoka:wght@500&display=swap" rel="stylesheet">
+<style>
+body{
+    margin:0;
+    font-family:'Lato', sans-serif;
+    background-color:#0f1419;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(20, 184, 166, 0.1) 0%, transparent 50%);
+    background-size:100% 100%;
+    text-align:center;
+    overflow:hidden;
+    color:#f0f0f0;
+}
+
+h1 {
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:3em;
+    letter-spacing:1px;
+    background: linear-gradient(135deg, #a78bfa 0%, #14b8a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h2 {
+    font-family:'Quicksand', sans-serif;
+    font-weight:600;
+    font-size:2em;
+    letter-spacing:0.5px;
+    background: linear-gradient(135deg, #a78bfa 0%, #14b8a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+p {
+    font-family:'Lato', sans-serif;
+    font-size:16px;
+    font-weight:300;
+    line-height:1.8;
+    color:#e0e0e0;
+}
+
+.page{
+    display:none;
+    height:100vh;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    position:relative;
+    padding:20px;
+}
+
+.active{
+    display:flex;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:20px;
+    background:linear-gradient(135deg, #a78bfa 0%, #14b8a6 100%);
+    color:#fff;
+    cursor:pointer;
+    margin:10px;
+    transition:0.3s;
+    display:inline-block;
+    font-family:'Fredoka', sans-serif;
+    font-weight:500;
+    font-size:16px;
+    letter-spacing:0.5px;
+    box-shadow:0 8px 20px rgba(167, 139, 250, 0.3);
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 12px 30px rgba(167, 139, 250, 0.5);
+}
+
+.back-btn{
+    position:absolute;
+    top:20px;
+    left:20px;
+    padding:6px 14px;
+    font-size:12px;
+    border-radius:15px;
+}
+
+.page img.page-image,
+.page img.custom-image{
+    width:250px;
+    max-width:80%;
+    border-radius:20px;
+    margin-bottom:20px;
+    margin-top:20px;
+    box-shadow:0 15px 40px rgba(167, 139, 250, 0.25);
+    object-fit:cover;
+    animation:slideUp 0.8s ease;
+    border:2px solid rgba(167, 139, 250, 0.3);
+}
+
+.envelope{
+    width:220px;
+    cursor:pointer;
+}
+
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:20px;
+    animation:floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+    from{ transform:translateY(0); opacity:1; }
+    to{ transform:translateY(-100vh); opacity:0; }
+}
+
+.pop{
+    animation:slideUp 0.8s ease;
+}
+
+.button-container{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    gap:10px;
+    margin-top:20px;
+}
+
+@keyframes slideUp{
+    from{ transform:translateY(40px); opacity:0; }
+    to{ transform:translateY(0); opacity:1; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+    <h1 class="pop">Heyyy!!! 🎉</h1>
+    <img class="custom-image" src="pook1.jpg" alt="Birthday memory">
+    <p class="pop">I made something special for you 🤗<br>Do you want to check it out?</p>
+    <div class="button-container">
+        <button onclick="goToPage(2)">Yes 👯</button>
+        <button onclick="goToPage(2)">Yes 😌</button>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <button class="back-btn" onclick="goToPage(1)">⬅</button>
+    <h1 class="pop">That’s a good boyyyy… 💕</h1>    <img class="custom-image" src="pook2.jpg" alt="Birthday memory">    <button onclick="goToPage(3)">Next ➡</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+    <button class="back-btn" onclick="goToPage(2)">⬅</button>
+    <h1 class="pop"><b>HAPPY BIRTHDAY 🎂🎊</b></h1>
+    <p class="pop">
+        <!-- To my coolest, awesomest best friend! 👯‍♂️✨<br>
+        May your day be filled with laughter, fun, and all the good vibes 🌟 -->
+    </p>
+    <!-- additional image on page 3 -->
+    <img class="custom-image" src="pook4.png" alt="Birthday surprise" />
+    <button onclick="goToPage(4)">Next ➡</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+    <button class="back-btn" onclick="goToPage(3)">⬅</button>
+    <h2 class="pop">I've got a little something for you 🎁</h2>
+    <img class="envelope" src="envelop.jpg" onclick="goToPage(5)" alt="Open envelope">
+    <p class="pop">Click to see my message 💌</p>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="page5">
+    <button class="back-btn" onclick="goToPage(4)">⬅</button>
+    <h2 class="pop">A Little Message For You 💛</h2>
+    <p class="pop" style="max-width:500px;">
+        Having you as my best friend is the best gift ever! 👯‍♂️✨<br>
+        Thanks for all the laughs, adventures, and amazing memories we've shared 🎉<br>
+        Here's to many more unforgettable moments together! 🌟
+    </p>
+</div>
+
+<script>
+function goToPage(pageNumber){
+    var pages = document.getElementsByClassName("page");
+    for(var i=0; i<pages.length; i++){
+        pages[i].classList.remove("active");
+    }
+    document.getElementById("page"+pageNumber).classList.add("active");
+}
+
+setInterval(function(){
+    var heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💛";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(15+Math.random()*20)+"px";
+    document.body.appendChild(heart);
+
+    setTimeout(function(){
+        heart.remove();
+    },6000);
+},800);
+</script>
+
+</body>
+</html>
