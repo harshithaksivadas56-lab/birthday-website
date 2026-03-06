@@ -149,7 +149,7 @@ button:hover{
     <img class="custom-image" src="pook1.jpg" alt="Birthday memory">
     <p class="pop">I made something special for you 🤗<br>Do you want to check it out?</p>
     <div class="button-container">
-        <button onclick="goToPage(2)">Yes 👯</button>
+        <button onclick="goToPage(2)">Yes 🫠</button>
         <button onclick="goToPage(2)">Yes 😌</button>
     </div>
 </div>
@@ -168,6 +168,10 @@ button:hover{
         <!-- To my coolest, awesomest best friend! 👯‍♂️✨<br>
         May your day be filled with laughter, fun, and all the good vibes 🌟 -->
     </p>
+    <audio id="birthdayMusic" loop preload="auto">
+        <source src="happy-birthday.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <!-- additional image on page 3 -->
     <img class="custom-image" src="pook4.png" alt="Birthday surprise" />
     <button onclick="goToPage(4)">Next ➡</button>
@@ -178,17 +182,23 @@ button:hover{
     <button class="back-btn" onclick="goToPage(3)">⬅</button>
     <h2 class="pop">I've got a little something for you 🎁</h2>
     <img class="envelope" src="envelop.jpg" onclick="goToPage(5)" alt="Open envelope">
-    <p class="pop">Click to see my message 💌</p>
+    <p class="pop">Click hereeee 💌</p>
 </div>
 
 <!-- PAGE 5 -->
-<div class="page" id="page5">
+<div class="page" id="page5" style="overflow-y: auto; justify-content: flex-start; align-items: center; padding-top: 80px;">
     <button class="back-btn" onclick="goToPage(4)">⬅</button>
-    <h2 class="pop">A Little Message For You 💛</h2>
+    <h2 class="pop"></h2>
     <p class="pop" style="max-width:500px;">
-        Having you as my best friend is the best gift ever! 👯‍♂️✨<br>
-        Thanks for all the laughs, adventures, and amazing memories we've shared 🎉<br>
-        Here's to many more unforgettable moments together! 🌟
+        Hey you,<br><br>
+        I don't know if words will ever be enough to explain how grateful I am that I met you. Out of all the random moments in life, meeting you during that course became one of the most meaningful ones for me.<br><br>
+        You might not even realize how much you helped me. In a time when I was still carrying pieces of my past, reminded me that good people still exist.<br><br>
+        Your honesty, your thoughts, and your heart made me admire you more and more. You are genuinely one of the kindest people I have ever met, and I'm really thankful that life allowed our paths to cross.<br><br>
+        Even if life takes us in different directions, I want you to know this: I will always be glad that I met you. Some people come into our lives and leave a quiet but beautiful mark, and you are definitely one of those people for me.<br><br>
+        Thank you for being such a good person. Thank you for motivating me. Thank you for helping me heal in ways you might never fully realize.<br><br>
+        No matter where life takes you, I truly hope you achieve everything you dream of. You deserve happiness, success, and all the good things life can offer.<br><br>
+        And I'll always be thankful that for a little while, our paths met.<br><br>
+        — Harshu
     </p>
 </div>
 
@@ -199,12 +209,21 @@ function goToPage(pageNumber){
         pages[i].classList.remove("active");
     }
     document.getElementById("page"+pageNumber).classList.add("active");
+    
+    // Control birthday music
+    var music = document.getElementById('birthdayMusic');
+    if(pageNumber === 3 && music){
+        music.play();
+    } else if(music){
+        music.pause();
+        music.currentTime = 0; // Reset to start
+    }
 }
 
 setInterval(function(){
     var heart=document.createElement("div");
     heart.className="heart";
-    heart.innerHTML="💛";
+    heart.innerHTML="💗";
     heart.style.left=Math.random()*100+"vw";
     heart.style.fontSize=(15+Math.random()*20)+"px";
     document.body.appendChild(heart);
